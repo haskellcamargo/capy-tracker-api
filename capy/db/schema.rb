@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160813065616) do
+ActiveRecord::Schema.define(version: 20160813074138) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -18,6 +18,19 @@ ActiveRecord::Schema.define(version: 20160813065616) do
     t.string   "session"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.integer  "last_date"
+    t.integer  "last_duration"
+    t.string   "browser_name"
+    t.string   "browser_version"
+    t.string   "url"
+    t.integer  "visits"
+    t.integer  "contact_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["contact_id"], name: "index_pages_on_contact_id"
   end
 
 end
