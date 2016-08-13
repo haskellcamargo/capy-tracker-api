@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160813074138) do
+ActiveRecord::Schema.define(version: 20160813132504) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20160813074138) do
   end
 
   create_table "pages", force: :cascade do |t|
-    t.integer  "last_date"
-    t.integer  "last_duration"
+    t.bigint   "last_date"
+    t.bigint   "last_duration"
     t.string   "browser_name"
     t.string   "browser_version"
     t.string   "url"

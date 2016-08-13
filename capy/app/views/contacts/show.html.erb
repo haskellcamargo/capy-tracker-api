@@ -1,48 +1,42 @@
-<h2>Session</h2>
-<%= @contact.session %>
+<%= render 'header' %>
 
-<h2>Name</h2>
-<%= @contact.name %>
+<div class="sub-header col-xs-12">
+    <%= @contact.name %> (<%= @contact.email %>)
+</div>
 
-<h2>Email</h2>
-<%= @contact.email %>
-
-<h1>Pages</h1>
-
-<%= form_for([@contact, @contact.pages.build]) do |f| %>
-
-  <div>
-    <%= f.label :last_date %><br />
-    <%= f.text_field :last_date %>
+<div class="content col-sm-3 col-xs-12 col-xs-offset-1">
+  <div class="profile-picture">
+    <img src="https://www.gravatar.com/avatar/<%= @hash %>?s=200" draggable="false" class="img-responsive" />
   </div>
+</div>
 
-  <div>
-    <%= f.label :last_duration %><br />
-    <%= f.text_field :last_duration %>
-  </div>
-
-  <div>
-    <%= f.label :browser_name %><br />
-    <%= f.text_field :browser_name %>
-  </div>
-
-  <div>
-    <%= f.label :browser_version %><br />
-    <%= f.text_field :browser_version %>
-  </div>
-
-  <div>
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </div>
-
-  <div>
-    <%= f.label :visits %><br />
-    <%= f.text_field :visits %><br />
-  </div>
-
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
+<div class="col-sm-7 col-xs-12">
+  <h2>Activity</h2>
+  <% @contact.pages.each do |page| %>
+    <div class="activity">
+      <table>
+        <tr>
+          <td><b>URL</b></td>
+          <td><a href="<%= page.url %>"><%= page.url %></a></td>
+        </tr>
+        <tr>
+          <td><b>Visits</b></td>
+          <td><%= page.visits %></td>
+        </tr>
+        <tr>
+          <td><b>Browser</b></td>
+          <td><%= page.browser_name %> v<%= page.browser_version %></td>
+        </tr>
+        <tr>
+          <td><b>Last visit</b></td>
+          <td><%= Time.at(page.last_date / 1000) %></td>
+        </tr>
+        <tr>
+          <td><b>Last duration</b></td>
+          <td><%= humanize page.last_duration %></td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+</div>
 

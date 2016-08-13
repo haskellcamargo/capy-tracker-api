@@ -1,3 +1,62 @@
-// Place all the styles related to the Contacts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$asphalt: #283739;
+$royal: #2C5D63;
+$avocado: #A2C11C;
+$neutral: #E0E0E0;
+
+.glyphicon {
+  // Override default bootstrap settings to fix the known align bug
+  top: 4px !important;
+}
+
+.glyphicon-remove {
+  cursor: pointer;
+  color: #E74C3C;
+
+  &:hover {
+    color: #C0392B;
+  }
+}
+
+body {
+  background-color: $neutral;
+  // So sorry for the !important
+  font-family: slabo, 'open sans', 'segoe ui', helvetica !important;
+}
+
+header {
+  background-color: $avocado;
+  font-size: 30px;
+  font-weight: lighter;
+
+  a {
+    color: white !important;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.sub-header {
+  background-color: $asphalt;
+  color: white;
+  padding: 10px;
+}
+
+.content {
+  padding: 20px 0;
+
+  .profile-picture img {
+    border: 1px solid #CCC;
+  }
+}
+
+td {
+  padding: 2px 10px;
+}
+
+.activity {
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px #666;
+}

@@ -1,5 +1,5 @@
 class Contact < ApplicationRecord
-  has_many :pages
+  has_many :pages, dependent: :destroy
 
   validates :session, presence: true,
                       length: { minimum: 10 }

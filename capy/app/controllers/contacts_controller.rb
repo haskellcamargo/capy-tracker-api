@@ -1,10 +1,13 @@
+require 'digest/md5'
+
 class ContactsController < ApplicationController
   def index
     @contacts = Contact.all
   end
 
   def show
-    @contact = Contact.find_by session: params[:id]
+    @contact = Contact.find params[:id]
+    @hash = Digest::MD5.hexdigest(@contact.email.strip)
   end
 
   def new
@@ -14,10 +17,19 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
 
-    @contact.save
-    redirect_to controller: 'contacts',
-                action: 'show',
-                id: @contact.session
+    if @contact.save
+      redirect_to contact_path(@contact)
+    else
+      render 'new'
+    end
+  end
+
+  def destroy
+    @contact = Contact.find params[:id]
+    @contact.destroy
+
+    redirect_to controller: 'contacts', action: :index
+    #redirect_to contact_path
   end
 
   private
