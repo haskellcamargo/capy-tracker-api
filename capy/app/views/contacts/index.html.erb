@@ -1,0 +1,10 @@
+
+
+<% @contacts.each do |contact| %>
+    <div>Session: <%= contact.session %></div>
+    <div>Name: <%= contact.name %></div>
+    <div>Email: <%= contact.email %></div>
+
+    <%= link_to 'Navegar', :controller => :contacts, :action => :show, :id => contact.session %>
+    <hr />
+<% end %>

@@ -1,0 +1,17 @@
+<%= form_for :contact, url: contacts_path do |f| %>
+  <div>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :session %><br />
+    <%= f.text_field :session %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
