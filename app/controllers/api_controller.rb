@@ -10,7 +10,7 @@ class ApiController < ApplicationController
     # Reducer
     case params[:type]
       when 'CONTACT'
-        insert_contact(contact_params)
+        insert_contact(params[:data])
       when 'SESSION'
         track_page(params[:data])
       when 'DURATION'
@@ -21,19 +21,11 @@ class ApiController < ApplicationController
   end
 
   private
-    def contact_params
-      params.permit(:name, :email, :session)
-    end
-
     def insert_contact(data)
       current_contact = Contact.find_by session: data[:session]
 
       # A contact happened previously
-      if current_contact != nil && current_contact.email != 'unknown'
-        render status: 200, text: 'ok'
-        return
-      elsif current_contact.email == 'unknown'
-        # Update contact data
+      if current_contact != nil
         current_contact.update({
           :name => data[:name],
           :email => data[:email]
