@@ -1,4 +1,4 @@
-class ApiController < ActionController::Base
+class ApiController < ApplicationController
   def index
     @contacts = Contact.all
     respond_to do |format|
