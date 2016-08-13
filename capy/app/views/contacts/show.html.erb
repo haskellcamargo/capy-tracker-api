@@ -6,3 +6,43 @@
 
 <h2>Email</h2>
 <%= @contact.email %>
+
+<h1>Pages</h1>
+
+<%= form_for([@contact, @contact.pages.build]) do |f| %>
+
+  <div>
+    <%= f.label :last_date %><br />
+    <%= f.text_field :last_date %>
+  </div>
+
+  <div>
+    <%= f.label :last_duration %><br />
+    <%= f.text_field :last_duration %>
+  </div>
+
+  <div>
+    <%= f.label :browser_name %><br />
+    <%= f.text_field :browser_name %>
+  </div>
+
+  <div>
+    <%= f.label :browser_version %><br />
+    <%= f.text_field :browser_version %>
+  </div>
+
+  <div>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+
+  <div>
+    <%= f.label :visits %><br />
+    <%= f.text_field :visits %><br />
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+
