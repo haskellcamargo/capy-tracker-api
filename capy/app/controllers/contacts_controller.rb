@@ -2,7 +2,7 @@ require 'digest/md5'
 
 class ContactsController < ApplicationController
   def index
-    @contacts = Contact.where.not(email: 'iunknown')
+    @contacts = Contact.where.not(email: 'unknown')
   end
 
   def show
