@@ -32,6 +32,14 @@ class ApiController < ActionController::Base
       if current_contact != nil && current_contact.email != 'unknown'
         render status: 200, text: 'ok'
         return
+      elsif current_contact.email == 'unknown'
+        # Update contact data
+        current_contact.update({
+          :name => data[:name],
+          :email => data[:email]
+        })
+        render status: 200, text: 'ok'
+        return
       end
 
       @contact = Contact.new(data)
