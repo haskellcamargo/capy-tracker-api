@@ -26,6 +26,7 @@ bin/rails server
 ```
 
 Please, note that our example is configured to run on port `3000` (the default one). Don't change it, now, ok?
+The API is under `/api` path. It's parameters are documented in [this project](https://github.com/haskellcamargo/capy-tracker).
 
 ## Features
 
@@ -42,5 +43,9 @@ Please, note that our example is configured to run on port `3000` (the default o
 ![](http://i.imgur.com/LabAzp4.png)
 
 Note: Use `.trackTime()` after `.start()` to observe.
+
+Ah, but, Celão, why isn't this on Heroku?
+
+Because sometimes :poop: happens. I've configured sqlite initially, then, later, I realized Heroku doesn't, eh, likes it that much.
 
 Made with :heart: and energy drinks!
