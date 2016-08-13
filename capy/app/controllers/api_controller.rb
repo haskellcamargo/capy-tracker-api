@@ -2,7 +2,7 @@ class ApiController < ActionController::Base
   def index
     @contacts = Contact.all
     respond_to do |format|
-      format.json { render json: params }
+      format.json { render json: @contacts }
     end
   end
 
